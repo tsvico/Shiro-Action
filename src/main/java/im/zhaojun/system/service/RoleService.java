@@ -50,7 +50,11 @@ public class RoleService {
 
     @Transactional
     public void add(Role role) {
-        roleMapper.insert(role);
+        try {
+            roleMapper.insert(role);
+        }catch (Exception e){
+            throw e;
+        }
     }
 
     @Transactional
