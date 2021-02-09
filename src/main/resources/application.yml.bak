@@ -1,0 +1,57 @@
+logging:
+  level:
+    im:
+      zhaojun: info
+    org:
+      crazycake:
+        shiro: info
+  pattern:
+    console: '%clr(%d{${LOG_DATEFORMAT_PATTERN:yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:%5p})
+      %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} [%15.15X{username}]
+      [%15.15X{ip}] %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}'
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
+server:
+  port: 8080
+shiro-action:
+  log:
+    login: false
+    operation: false
+  login-verify: true
+  perms-cache-timeout: 3600
+  retry-count: 5
+  retry-timeout: 300
+  session-timeout: 1800
+  super-admin-username: admin
+spring:
+  cache:
+    redis:
+      time-to-live: 600000
+    type: redis
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/shiro_action?useSSL=false&characterEncoding=UTF8&serverTimezone=UTC
+    username: root
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  mail:
+    default-encoding: utf-8
+    host: smtp.163.com
+    password: shiro123
+    username: shiro_action@163.com
+  mvc:
+    throw-exception-if-no-handler-found: true
+  profiles:
+    active: dev
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  resources:
+    add-mappings: true
+  thymeleaf:
+    cache: false
