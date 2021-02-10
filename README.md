@@ -1,11 +1,11 @@
-# Shiro-Action
+# 是Shiro-Action的衍生项目
 
-[![Build Status](https://travis-ci.org/zhaojun1998/Shiro-Action.svg?branch=master)](https://travis-ci.org/zhaojun1998/Shiro-Action)
+[![Build Status](https://travis-ci.org/tsvico/Shiro-Action.svg?branch=master)](https://travis-ci.org/tsvico/Shiro-Action)
 ![https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square](https://img.shields.io/badge/license-MIT-blue.svg?longCache=true&style=flat-square)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3b39480c887b42f1875c0210817b500f)](https://www.codacy.com/app/zhaojun1998/Shiro-Action?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=zhaojun1998/Shiro-Action&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3b39480c887b42f1875c0210817b500f)](https://www.codacy.com/app/tsvico/Shiro-Action?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tsvico/Shiro-Action&amp;utm_campaign=Badge_Grade)
 ![https://img.shields.io/badge/springboot-2.0.6-orange.svg?style=flat-square](https://img.shields.io/badge/springboot-2.0.6-yellow.svg?longCache=true&style=popout-square)
 ![https://img.shields.io/badge/apache%20shiro-1.4.0-green.svg?style=flat-square](https://img.shields.io/badge/apache%20shiro-1.4.0-green.svg?longCache=true&style=flat-square)
-![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/zhaojun1998/Shiro-Action.svg?style=flat-square)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/tsvico/Shiro-Action.svg?style=flat-square)
 
 本项目使用 Spring Boot 搭建, 用于加深对 Spring Boot 与 Shiro 的学习, 项目特色是支持 restful 风格权限控制, 支持对同一 URL, 不同 HTTP Mehtod 的权限控制, 适用于更多的场景.
 
@@ -107,8 +107,7 @@ spring.datasource.url=jdbc:mysql://127.0.0.1:3306/shiro_action?useSSL=false&char
 * OAuth2 认证工具类: [JustAuth](https://gitee.com/yadong.zhang/JustAuth)
 * Hutool : [https://hutool.cn/](https://hutool.cn/)
 
-### 反馈交流
+#### 待做事项
 
-QQ 群号: [850586205](//shang.qq.com/wpa/qunwpa?idkey=b482b2e48a938a993ef54adcff7ed499a45127a73802a68f1238256fb02ed425)
-
-![](https://cdn.jun6.net/201904141340_574.png)
+- [ ] 将项目转换为kotlin
+- [ ] 部分代码重构

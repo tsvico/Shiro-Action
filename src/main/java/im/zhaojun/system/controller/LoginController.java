@@ -1,6 +1,7 @@
 package im.zhaojun.system.controller;
 
 import cn.hutool.core.util.IdUtil;
+import com.wf.captcha.base.Captcha;
 import im.zhaojun.common.annotation.OperationLog;
 import im.zhaojun.common.exception.CaptchaIncorrectException;
 import im.zhaojun.common.shiro.ShiroActionProperties;
@@ -13,6 +14,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,11 +24,9 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import javax.annotation.Resource;
-import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.OutputStream;
 
 @Controller
 public class LoginController {
@@ -42,6 +42,9 @@ public class LoginController {
 
     @Resource
     private ShiroActionProperties shiroActionProperties;
+
+    @Autowired(required = false)
+    private CaptchaUtil captcha;
 
     @GetMapping("/login")
     public String login(Model model) {
@@ -108,16 +111,14 @@ public class LoginController {
         return ResultBean.success(userService.add(user, initRoleIds));
     }
 
+
     @GetMapping("/captcha")
     public void captcha(HttpServletResponse response) throws IOException {
-        //定义图形验证码的长、宽、验证码字符数、干扰元素个数
-        CaptchaUtil.Captcha captcha = CaptchaUtil.createCaptcha(140, 38, 4, 10, 30);
+        // 获取运算的结果
+        Captcha captcha =  this.captcha.getCaptcha();
         Session session = SecurityUtils.getSubject().getSession();
-        session.setAttribute("captcha", captcha.getCode());
-
-        response.setContentType("image/png");
-        OutputStream os = response.getOutputStream();
-        ImageIO.write(captcha.getImage(), "png", os);
+        session.setAttribute("captcha", captcha.text());
+        captcha.out(response.getOutputStream());
     }
 
     @OperationLog("激活注册账号")

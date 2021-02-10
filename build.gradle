@@ -6,7 +6,7 @@ plugins {
     id 'java'
     id 'maven-publish'
     id "io.spring.dependency-management" version "1.0.8.RELEASE"
-    id "org.springframework.boot" version "2.0.4.RELEASE"
+    id "org.springframework.boot" version "2.0.6.RELEASE"
     id 'org.jetbrains.kotlin.jvm' version '1.4.21'
 }
 
@@ -24,6 +24,7 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "org.jetbrains.kotlin:kotlin-reflect"
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-mail'
@@ -44,6 +45,8 @@ dependencies {
     implementation 'me.zhyd.oauth:JustAuth:1.4.0'
     runtimeOnly 'mysql:mysql-connector-java:5.1.47'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // java图形验证码
+    implementation 'com.github.whvcse:easy-captcha:1.6.2'
 }
 
 group = 'im.zhaojun'
