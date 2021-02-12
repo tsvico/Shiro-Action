@@ -3,5 +3,7 @@ jdk:
   - oraclejdk8
 dist: trusty
 script:
-  - gradle check
-  - gradle build
+  - ./gradle check
+  - ./gradle build
+before_install:
+  - chmod +x gradlew
