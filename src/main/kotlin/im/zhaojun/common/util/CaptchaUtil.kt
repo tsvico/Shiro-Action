@@ -63,18 +63,18 @@ class CaptchaUtil {
      * 给定范围内获取颜色值
      */
     private fun getRandColor(fc: Int, bc: Int): Color {
-        var fc = fc
-        var bc = bc
+        var fcTmp = fc
+        var bcTmp = bc
         val random = Random()
         if (fc > 255) {
-            fc = 255
+            fcTmp = 255
         }
         if (bc > 255) {
-            bc = 255
+            bcTmp = 255
         }
-        val r = fc + random.nextInt(bc - fc)
-        val g = fc + random.nextInt(bc - fc)
-        val b = fc + random.nextInt(bc - fc)
+        val r = fcTmp + random.nextInt(bcTmp - fcTmp)
+        val g = fcTmp + random.nextInt(bcTmp - fcTmp)
+        val b = fcTmp + random.nextInt(bcTmp - fcTmp)
         return Color(r, g, b)
     }
 
@@ -97,7 +97,7 @@ class CaptchaUtil {
         /**
          * 验证码内容长度
          */
-        val length = 2
+        val length = 3
 
         /**
          * 验证码宽度

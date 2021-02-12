@@ -1,9 +1,10 @@
-# 是Shiro-Action的衍生项目
+# Shiro-Action的衍生项目 
+> 使用 `kotlin`重构
 
 [![Build Status](https://travis-ci.org/tsvico/Shiro-Action.svg?branch=master)](https://travis-ci.org/tsvico/Shiro-Action)
 ![https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square](https://img.shields.io/badge/license-MIT-blue.svg?longCache=true&style=flat-square)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3b39480c887b42f1875c0210817b500f)](https://www.codacy.com/app/tsvico/Shiro-Action?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tsvico/Shiro-Action&amp;utm_campaign=Badge_Grade)
-![https://img.shields.io/badge/springboot-2.0.6-orange.svg?style=flat-square](https://img.shields.io/badge/springboot-2.0.6-yellow.svg?longCache=true&style=popout-square)
+![https://img.shields.io/badge/springboot-2.2.4-orange.svg?style=flat-square](https://img.shields.io/badge/springboot-2.2.4-yellow.svg?longCache=true&style=popout-square)
 ![https://img.shields.io/badge/apache%20shiro-1.4.0-green.svg?style=flat-square](https://img.shields.io/badge/apache%20shiro-1.4.0-green.svg?longCache=true&style=flat-square)
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/tsvico/Shiro-Action.svg?style=flat-square)
 
@@ -38,7 +39,7 @@
 ### 下载项目
 
 ```git
-git clone https://github.com/zhaojun1998/Shiro-Action.git
+git clone https://github.com/tsvico/Shiro-Action.git
 ```
 
 ### 导入项目
@@ -53,7 +54,7 @@ git clone https://github.com/zhaojun1998/Shiro-Action.git
 
 ### 配置文件
 
-打开 `application.properties` 修改 `MySQL` 和 `Redis` 连接信息.
+将 `application.yml.bak` 复制一份删除后缀`.bak`，并修改 `MySQL` 和 `Redis` 连接信息.
 
 ```properties
 spring.redis.host=127.0.0.1
@@ -95,12 +96,12 @@ spring.datasource.url=jdbc:mysql://127.0.0.1:3306/shiro_action?useSSL=false&char
 
 #### 后端
 
-* SpringBoot 2.0.6.RELEASE
-* Shiro 1.4.0
+* SpringBoot 2.2.4.RELEASE
+* Shiro 1.6.0
 * MyBatis 1.3.2
 * Druid 1.1.10
 * PageHelper 1.2.9
-* Shiro-Redis 3.2.3
+* Shiro-Redis 3.3.1
 
 #### 其他工具类
 
@@ -109,5 +110,6 @@ spring.datasource.url=jdbc:mysql://127.0.0.1:3306/shiro_action?useSSL=false&char
 
 #### 待做事项
 
-- [ ] 将项目转换为kotlin
+- [x] 将项目转换为kotlin
 - [ ] 部分代码重构
+- [ ] 前后端分离
