@@ -40,12 +40,11 @@ object DateUtils : DateUtils() {
     val time: String
         get() = dateTimeNow(YYYY_MM_DD_HH_MM_SS)
 
-    @JvmOverloads
-    fun dateTimeNow(format: String? = YYYYMMDDHHMMSS): String {
-        return parseDateToStr(format, Date())
+    fun dateTimeNow(format: String?): String {
+        return parseDateToStr(format ?: "YYYYMMDDHHMMSS", Date())
     }
 
-    fun dateTime(date: Date?): String {
+    fun dateTime(date: Date): String {
         return parseDateToStr(YYYY_MM_DD, date)
     }
 
