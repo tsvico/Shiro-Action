@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component
 /**
  * Gitee OAuth2 Realm
  */
-@Component
+// @Component
 class OAuth2GiteeRealm : OAuth2Realm() {
     override val authcTypeEnum: AuthcTypeEnum
         get() = AuthcTypeEnum.GITEE

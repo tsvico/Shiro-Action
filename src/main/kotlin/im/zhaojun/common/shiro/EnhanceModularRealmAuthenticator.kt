@@ -1,6 +1,5 @@
 package im.zhaojun.common.shiro
 
-import im.zhaojun.common.shiro.EnhanceModularRealmAuthenticator
 import org.apache.shiro.authc.AuthenticationInfo
 import org.apache.shiro.authc.AuthenticationToken
 import org.apache.shiro.authc.pam.ModularRealmAuthenticator

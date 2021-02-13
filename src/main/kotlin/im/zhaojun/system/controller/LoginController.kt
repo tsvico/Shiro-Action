@@ -40,7 +40,7 @@ class LoginController {
     private lateinit var captcha: CaptchaUtil
 
     @GetMapping("/login")
-    fun login(model: Model): String {
+    fun loginPage(model: Model): String {
         model.addAttribute("loginVerify", shiroActionProperties.loginVerify)
         return "login"
     }
@@ -104,6 +104,11 @@ class LoginController {
     @GetMapping("/captcha")
     @Throws(IOException::class)
     fun captcha(response: HttpServletResponse) {
+        // 设置请求头为输出图片类型
+        response.contentType = "image/gif";
+        response.setHeader("Pragma", "No-cache");
+        response.setHeader("Cache-Control", "no-cache");
+        response.setDateHeader("Expires", 0);
         // 获取运算的结果
         val captcha = captcha.getCaptcha()
         val session = SecurityUtils.getSubject().session

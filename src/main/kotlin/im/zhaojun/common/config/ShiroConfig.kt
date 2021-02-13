@@ -131,6 +131,7 @@ class ShiroConfig {
     fun redisManager(): RedisManager {
         val redisManager = RedisManager()
         redisManager.host = "$redisHost:$redisPort"
+        redisManager.timeout = 60 * 1000
         return redisManager
     }
 

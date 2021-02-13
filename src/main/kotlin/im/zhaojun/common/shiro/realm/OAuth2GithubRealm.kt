@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component
 /**
  * Github OAuth2 Realm
  */
-@Component
+// @Component
 class OAuth2GithubRealm : OAuth2Realm() {
     override val authcTypeEnum: AuthcTypeEnum
         get() = AuthcTypeEnum.GITHUB

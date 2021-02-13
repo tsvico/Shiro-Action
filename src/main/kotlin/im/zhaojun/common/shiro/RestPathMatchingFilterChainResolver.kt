@@ -1,6 +1,5 @@
 package im.zhaojun.common.shiro
 
-import im.zhaojun.common.shiro.RestPathMatchingFilterChainResolver
 import im.zhaojun.common.util.WebHelper
 import org.apache.shiro.web.filter.mgt.PathMatchingFilterChainResolver
 import org.slf4j.LoggerFactory

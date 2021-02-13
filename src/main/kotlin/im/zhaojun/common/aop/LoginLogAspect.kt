@@ -15,10 +15,9 @@ import org.springframework.stereotype.Component
 @ConditionalOnProperty(value = ["shiro-action.log.login"], havingValue = "true")
 class LoginLogAspect {
     @Autowired
-    private val loginLogService: LoginLogService? = null
-    @Pointcut("execution(im.zhaojun.common.util.ResultBean im.zhaojun.system.controller..LoginController.login(im.zhaojun.system.model.User, String) )")
-    fun loginLogPointCut() {
-    }
+    private lateinit var loginLogService: LoginLogService
+    @Pointcut("execution(* im.zhaojun.system.controller.LoginController.login(..) )")
+    fun loginLogPointCut() {}
 
     @After("loginLogPointCut()")
     fun recordLoginLog(joinPoint: JoinPoint) {
@@ -27,6 +26,6 @@ class LoginLogAspect {
         val user = args[0] as User
         val subject = SecurityUtils.getSubject()
         val ip = IPUtils.ipAddr
-        loginLogService!!.addLog(user.username, subject.isAuthenticated, ip)
+        loginLogService.addLog(user.username, subject.isAuthenticated, ip)
     }
 }

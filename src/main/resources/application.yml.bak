@@ -17,8 +17,8 @@ server:
   port: 8080
 shiro-action:
   log:
-    login: false
-    operation: false
+    login: true
+    operation: true
   login-verify: true
   perms-cache-timeout: 3600
   retry-count: 5
