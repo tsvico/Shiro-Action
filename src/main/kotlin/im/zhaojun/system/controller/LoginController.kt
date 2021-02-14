@@ -105,10 +105,9 @@ class LoginController {
     @Throws(IOException::class)
     fun captcha(response: HttpServletResponse) {
         // 设置请求头为输出图片类型
-        response.contentType = "image/gif";
-        response.setHeader("Pragma", "No-cache");
-        response.setHeader("Cache-Control", "no-cache");
-        response.setDateHeader("Expires", 0);
+        response.contentType = "image/gif"
+        response.setHeader("Pragma", "No-cache")
+        response.setHeader("Cache-Control", "no-cache")
         // 获取运算的结果
         val captcha = captcha.getCaptcha()
         val session = SecurityUtils.getSubject().session
@@ -121,14 +120,18 @@ class LoginController {
     fun active(@PathVariable("token") token: String?, model: Model): String {
         val user = userService.selectByActiveCode(token)
         val msg: String
-        if (user == null) {
-            msg = "请求异常, 激活地址不存在!"
-        } else if ("1" == user.status) {
-            msg = "用户已激活, 请勿重复激活!"
-        } else {
-            msg = "激活成功!"
-            user.status = "1"
-            userService.activeUserByUserId(user.userId)
+        when {
+            user == null -> {
+                msg = "请求异常, 激活地址不存在!"
+            }
+            "1" == user.status -> {
+                msg = "用户已激活, 请勿重复激活!"
+            }
+            else -> {
+                msg = "激活成功!"
+                user.status = "1"
+                userService.activeUserByUserId(user.userId)
+            }
         }
         model.addAttribute("msg", msg)
         return "active"

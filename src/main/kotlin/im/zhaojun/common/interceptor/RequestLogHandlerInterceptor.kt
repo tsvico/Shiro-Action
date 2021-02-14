@@ -10,15 +10,12 @@ import javax.servlet.http.HttpServletResponse
 
 @Component
 class RequestLogHandlerInterceptor : HandlerInterceptor {
+    private val log = LoggerFactory.getLogger(RequestLogHandlerInterceptor::class.java)
     override fun preHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any): Boolean {
         if (log.isDebugEnabled) {
             log.debug("请求 URL:" + request.requestURI)
             log.debug("请求参数:" + JSONUtil.toJsonStr(request.parameterMap))
         }
         return true
-    }
-
-    companion object {
-        private val log = LoggerFactory.getLogger(RequestLogHandlerInterceptor::class.java)
     }
 }

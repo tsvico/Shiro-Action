@@ -102,6 +102,7 @@ spring.datasource.url=jdbc:mysql://127.0.0.1:3306/shiro_action?useSSL=false&char
 * Druid 1.1.10
 * PageHelper 1.2.9
 * Shiro-Redis 3.3.1
+* EasyCaptcha 1.6.2
 
 #### 其他工具类
 

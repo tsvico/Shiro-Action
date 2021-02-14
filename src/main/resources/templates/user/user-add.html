@@ -143,11 +143,17 @@
 
             //监听提交
             form.on('submit(edit)', function (form) {
+                console.log("修改",form)
                 form.field._method = 'PUT';
                 form.field.role = formSelects.value('role-select', 'val');
-                $.post('/user', form.field, function (result) {
-                    handlerResult(result, editDone);
-                });
+                $.ajax({
+                    url : '/user',
+                    data : form.field,
+                    type : "PUT",
+                    success : function(result){
+                        handlerResult(result, editDone);
+                    }
+                })
                 return false;
             });
 

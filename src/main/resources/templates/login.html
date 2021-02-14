@@ -24,7 +24,7 @@
                        class="layui-input">
             </div>
             <div class="layui-input-inline" th:if="${loginVerify}">
-                <input name="captcha" lay-verify="required" placeholder="验证码" style="width:50%;" type="text"
+                <input name="captcha" lay-verify="required" placeholder="验证码" style="width:50%;" type="text" autocomplete="off"
                        class="layui-input-inline layui-input">
                 <img style="margin-bottom: 15px;" onclick="generateCaptcha(this)"
                      th:src="@{/captcha(timestamp=${new java.util.Date().getTime()})}"/>
