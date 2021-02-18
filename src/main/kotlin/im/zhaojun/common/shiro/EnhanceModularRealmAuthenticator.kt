@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory
  * 但我们系统有统一异常处理, 所以不需要他捕获我们的自定义异常, 这里将异常抛出.
  */
 class EnhanceModularRealmAuthenticator : ModularRealmAuthenticator() {
+    private val log = LoggerFactory.getLogger(EnhanceModularRealmAuthenticator::class.java)
     /**
      * 抛出 realm 中第一个遇到的异常
      */
@@ -35,7 +36,4 @@ class EnhanceModularRealmAuthenticator : ModularRealmAuthenticator() {
         return aggregate
     }
 
-    companion object {
-        private val log = LoggerFactory.getLogger(EnhanceModularRealmAuthenticator::class.java)
-    }
 }

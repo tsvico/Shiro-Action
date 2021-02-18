@@ -31,6 +31,9 @@ class UserNameRealm : AuthorizingRealm() {
 
     @Autowired
     private lateinit var shiroActionProperties: ShiroActionProperties
+
+    private val log = LoggerFactory.getLogger(UserNameRealm::class.java)
+
     override fun supports(token: AuthenticationToken): Boolean {
         return token is UsernamePasswordToken
     }
@@ -114,9 +117,5 @@ class UserNameRealm : AuthorizingRealm() {
             principals,
             roleIdentifier
         )
-    }
-
-    companion object {
-        private val log = LoggerFactory.getLogger(UserNameRealm::class.java)
     }
 }

@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletRequest
  * 修改后的 authc 过滤器, 添加对 AJAX 请求的支持.
  */
 class RestFormAuthenticationFilter : FormAuthenticationFilter() {
+    private val log = LoggerFactory
+        .getLogger(RestFormAuthenticationFilter::class.java)
+
     override fun pathsMatch(path: String, request: ServletRequest): Boolean {
         val flag: Boolean
         val requestURI = getPathWithinApplication(request)
@@ -80,10 +83,5 @@ class RestFormAuthenticationFilter : FormAuthenticationFilter() {
             }
             false
         }
-    }
-
-    companion object {
-        private val log = LoggerFactory
-            .getLogger(RestFormAuthenticationFilter::class.java)
     }
 }

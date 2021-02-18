@@ -47,6 +47,7 @@ class ShiroConfig {
 
     @Value("\${spring.redis.port}")
     private val redisPort: Int? = null
+
     @Bean
     fun restShiroFilterFactoryBean(securityManager: SecurityManager?): RestShiroFilterFactoryBean {
         val shiroFilterFactoryBean = RestShiroFilterFactoryBean()
@@ -109,6 +110,7 @@ class ShiroConfig {
      */
     @Bean
     fun hashedCredentialsMatcher(): HashedCredentialsMatcher {
+        // 指定加密算法
         return RetryLimitHashedCredentialsMatcher("md5")
     }
 
@@ -148,8 +150,11 @@ class ShiroConfig {
     @Bean
     fun sessionManager(): DefaultWebSessionManager {
         val sessionManager = DefaultWebSessionManager()
+        // 设置sessionDAO
         sessionManager.sessionDAO = redisSessionDAO()
         sessionManager.isSessionIdUrlRewritingEnabled = false
+        // 删除无效session
+        sessionManager.isDeleteInvalidSessions = true
         return sessionManager
     }
 }

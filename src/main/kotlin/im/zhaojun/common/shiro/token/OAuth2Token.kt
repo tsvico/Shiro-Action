@@ -15,8 +15,4 @@ class OAuth2Token(var authCode: String, var authcTypeEnum: AuthcTypeEnum) : Auth
     override fun getCredentials(): Any {
         return authCode
     }
-
-    companion object {
-        private const val serialVersionUID = 636072434492299237L
-    }
 }

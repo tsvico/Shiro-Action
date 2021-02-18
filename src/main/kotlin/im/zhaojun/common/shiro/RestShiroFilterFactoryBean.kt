@@ -1,6 +1,5 @@
 package im.zhaojun.common.shiro
 
-import im.zhaojun.common.shiro.RestShiroFilterFactoryBean
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean
 import org.apache.shiro.web.filter.mgt.FilterChainResolver
 import org.apache.shiro.web.filter.mgt.PathMatchingFilterChainResolver

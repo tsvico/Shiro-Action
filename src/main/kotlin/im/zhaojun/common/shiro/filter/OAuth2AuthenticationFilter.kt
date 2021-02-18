@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletRequest
  * OAuth2 认证过滤器
  */
 class OAuth2AuthenticationFilter(private val oAuth2Helper: OAuth2Helper?) : AuthenticatingFilter() {
+    // oauth2 authc code 参数名
+    private val AUTHC_CODE_PARAM = "code"
     /**
      * 使用 OAuth2 服务提供商返回的 code 构建 token
      */
@@ -46,7 +48,6 @@ class OAuth2AuthenticationFilter(private val oAuth2Helper: OAuth2Helper?) : Auth
      *
      * 如果没有返回错误信息, 则判断
      */
-    @Throws(Exception::class)
     override fun onAccessDenied(request: ServletRequest, response: ServletResponse): Boolean {
         val error = request.getParameter("error")
         val errorDescription = request.getParameter("error_description")
@@ -71,10 +72,5 @@ class OAuth2AuthenticationFilter(private val oAuth2Helper: OAuth2Helper?) : Auth
     ): Boolean {
         WebHelper.redirectUrl("/oauth2/success")
         return false
-    }
-
-    companion object {
-        // oauth2 authc code 参数名
-        private const val AUTHC_CODE_PARAM = "code"
     }
 }

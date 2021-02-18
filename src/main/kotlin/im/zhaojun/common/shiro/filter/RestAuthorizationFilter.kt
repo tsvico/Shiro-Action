@@ -1,6 +1,5 @@
 package im.zhaojun.common.shiro.filter
 
-import im.zhaojun.common.shiro.filter.RestAuthorizationFilter
 import im.zhaojun.common.util.IPUtils
 import im.zhaojun.common.util.ResultBean
 import im.zhaojun.common.util.WebHelper
