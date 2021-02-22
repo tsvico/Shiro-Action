@@ -4,7 +4,6 @@
 
 plugins {
     id 'java'
-    id 'maven-publish'
     id "io.spring.dependency-management" version "1.0.8.RELEASE"
     id "org.springframework.boot" version "2.2.4.RELEASE"
     id 'org.jetbrains.kotlin.jvm' version '1.4.21'
@@ -12,13 +11,11 @@ plugins {
     id "org.jetbrains.kotlin.plugin.spring" version "1.4.21"
 }
 
-group = 'im.zhaojun'
+group = 'cn.tsvico'
 version = '0.7'
 description = 'Shiro-Action'
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 java.targetCompatibility = JavaVersion.VERSION_1_8
-
-apply plugin: "kotlin-allopen"
 
 repositories {
     mavenLocal()

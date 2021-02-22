@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="im.zhaojun.system.mapper.RoleMapper">
-    <resultMap id="BaseResultMap" type="im.zhaojun.system.model.Role">
+<mapper namespace="cn.tsvico.system.mapper.RoleMapper">
+    <resultMap id="BaseResultMap" type="cn.tsvico.system.model.Role">
         <id column="role_id" jdbcType="INTEGER" property="roleId"/>
         <result column="role_name" jdbcType="VARCHAR" property="roleName"/>
         <result column="remark" jdbcType="VARCHAR" property="remark"/>
@@ -26,12 +26,12 @@
         from role
         where role_id = #{roleId,jdbcType=INTEGER}
     </delete>
-    <insert id="insert" keyColumn="role_id" keyProperty="roleId" parameterType="im.zhaojun.system.model.Role"
+    <insert id="insert" keyColumn="role_id" keyProperty="roleId" parameterType="cn.tsvico.system.model.Role"
             useGeneratedKeys="true">
         insert into role (role_name, remark)
         values (#{roleName,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
     </insert>
-    <update id="updateByPrimaryKey" parameterType="im.zhaojun.system.model.Role">
+    <update id="updateByPrimaryKey" parameterType="cn.tsvico.system.model.Role">
         update role
         set role_name = #{roleName,jdbcType=VARCHAR},
             remark    = #{remark,jdbcType=VARCHAR}

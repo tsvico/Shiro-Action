@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="im.zhaojun.system.mapper.UserAuthsMapper">
-  <resultMap id="BaseResultMap" type="im.zhaojun.system.model.UserAuths">
+<mapper namespace="cn.tsvico.system.mapper.UserAuthsMapper">
+  <resultMap id="BaseResultMap" type="cn.tsvico.system.model.UserAuths">
     <!--@mbg.generated-->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
@@ -25,14 +25,14 @@
     delete from user_auths
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="im.zhaojun.system.model.UserAuths" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.tsvico.system.model.UserAuths" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into user_auths (user_id, identity_type, identifier, 
       credential)
     values (#{userId,jdbcType=INTEGER}, #{identityType,jdbcType=VARCHAR}, #{identifier,jdbcType=VARCHAR}, 
       #{credential,jdbcType=VARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="im.zhaojun.system.model.UserAuths">
+  <update id="updateByPrimaryKey" parameterType="cn.tsvico.system.model.UserAuths">
     <!--@mbg.generated-->
     update user_auths
     set user_id = #{userId,jdbcType=INTEGER},
